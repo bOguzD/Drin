@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Drin.Core
+namespace Drin.Core.Entities
 {
     public class Category : BaseEntity
     {

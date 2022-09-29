@@ -1,3 +1,5 @@
+using Drin.Business.Mapping;
+using Drin.Business.Services;
 using Drin.Core.Repositories;
 using Drin.Core.Services;
 using Drin.Core.UnitOfWorks;
@@ -18,9 +20,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-//builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
-
-
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 builder.Services.AddDbContext<DrinDbContext>(x =>
 {

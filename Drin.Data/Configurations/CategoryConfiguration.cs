@@ -1,4 +1,4 @@
-﻿using Drin.Core;
+﻿using Drin.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace Drin.Data.Configurations

@@ -1,4 +1,4 @@
-﻿namespace Drin.Core
+﻿namespace Drin.Core.Entities
 {
     public class Product : BaseEntity
     {
