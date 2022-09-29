@@ -1,6 +1,6 @@
 ﻿using System.Reflection.PortableExecutable;
 
-namespace Drin.Core
+namespace Drin.Core.Entities
 {
     public abstract class BaseEntity
     {

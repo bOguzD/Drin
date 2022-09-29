@@ -1,12 +1,10 @@
-﻿namespace Drin.Core
+﻿namespace Drin.Core.DTOs
 {
-    public class ProductFeature 
+    public class ProductFeatureDTO
     {
-        public int Id { get; set; }
         public decimal Weight { get; set; }
         public string Colour { get; set; }
 
         public int ProductId { get; set; }
-        public Product Product { get; set; }
     }
 }

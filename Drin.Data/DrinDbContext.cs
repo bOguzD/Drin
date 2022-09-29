@@ -1,4 +1,4 @@
-﻿using Drin.Core;
+﻿using Drin.Core.Entities;
 using Drin.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
