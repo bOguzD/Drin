@@ -8,7 +8,7 @@
         public object? Data { get; set; }
 
 
-        public static ServiceResponse Success(string? message, int statusCode)
+        public static ServiceResponse Success(int statusCode, string? message)
         {
             return CreateServiceResponse(true, message, statusCode, null);
         }
@@ -17,7 +17,7 @@
             return CreateServiceResponse(true, message, statusCode, data);
         }
 
-        public static ServiceResponse Error(string? message, int statusCode)
+        public static ServiceResponse Failure(int statusCode, string? message)
         {
             message = CreateErrorMessage(message);
             return CreateServiceResponse(false, message, statusCode, null);
