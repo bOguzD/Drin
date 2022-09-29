@@ -19,6 +19,11 @@ namespace Drin.Data.Repositories
         {
             await dbSet.AddAsync(entity);
         }
+        public async Task<T> AddAsyncReturnEntity(T entity)
+        {
+            await dbSet.AddAsync(entity);
+            return entity;
+        }
 
         public async Task AddRangeAsync(IEnumerable<T> entities)
         {
