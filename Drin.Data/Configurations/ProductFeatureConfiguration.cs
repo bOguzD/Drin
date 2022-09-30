@@ -10,6 +10,7 @@ namespace Drin.Data.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Weight).HasColumnType("decimal(18,2)").IsRequired();
 
             builder.HasOne(x => x.Product).WithOne(x => x.ProductFeature).HasForeignKey<ProductFeature>(x => x.ProductId);
         }

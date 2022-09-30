@@ -4,21 +4,21 @@ namespace Drin.Data.UnitOfWorks
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DrinDbContext context;
+        private readonly DrinDbContext _context;
 
         public UnitOfWork(DrinDbContext context)
         {
-            this.context = context;
+            _context = context;
         }
 
         public void Commit()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public async Task CommitAsync()
         {
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

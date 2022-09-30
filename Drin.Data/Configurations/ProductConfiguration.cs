@@ -12,7 +12,7 @@ namespace Drin.Data.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x=>x.Name).IsRequired().HasMaxLength(128);
             builder.Property(x => x.Stock).IsRequired();
-            builder.Property(x => x.Price).IsRequired();
+            builder.Property(x => x.Price).HasColumnType("decimal(18,2)").IsRequired();
 
             builder.HasOne(x => x.Category).WithMany(x => x.Products).HasForeignKey(x=>x.CategoryId);
         }

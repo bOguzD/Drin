@@ -7,74 +7,80 @@ namespace Drin.Business.Services
 {
     public class Service<T> : IService<T> where T : class
     {
-        private readonly IGenericRepository<T> repository;
-        private readonly IUnitOfWork unitOfWork;
+        private readonly IGenericRepository<T> _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
         public Service(IGenericRepository<T> repository, IUnitOfWork unitOfWork)
         {
-            this.repository = repository;
-            this.unitOfWork = unitOfWork;
+            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task AddAsync(T entity)
         {
-            await repository.AddAsync(entity);
-            await unitOfWork.CommitAsync();
-        }
-        public async Task<T> AddAsyncReturnEntity(T entity)
-        {
-            await repository.AddAsync(entity);
-            await unitOfWork.CommitAsync();
-            return entity;
+            await _repository.AddAsync(entity);
+            await _unitOfWork.CommitAsync();
         }
 
         public async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            await repository.AddRangeAsync(entities);
-            await unitOfWork.CommitAsync();
+            await _repository.AddRangeAsync(entities);
+            await _unitOfWork.CommitAsync();
         }
 
-        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
+        public void Delete(T entity)
         {
-            return await repository.AnyAsync(predicate);
+            _repository.Delete(entity);
+            _unitOfWork.Commit();
         }
 
         public async Task DeleteAsync(T entity)
         {
-            repository.Delete(entity);
-            await unitOfWork.CommitAsync();
+            _repository.Delete(entity);
+            await _unitOfWork.CommitAsync();
         }
 
         public async Task DeleteRangeAsync(IEnumerable<T> entities)
         {
-            repository.DeleteRange(entities);
-            await unitOfWork.CommitAsync();
+            _repository.DeleteRange(entities);
+            await _unitOfWork.CommitAsync();
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate)
-        {
-            return repository.GetAll(predicate);
-        }
+        //public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate)
+        //{
+        //    return _repository.GetAll(predicate);
+        //}
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await repository.GetAllAsync();
+            return await _repository.GetAllAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await repository.GetByIdAsync(id);
+            return await _repository.GetByIdAsync(id);
+        }
+
+        public void Update(T entity)
+        {
+            _repository.Update(entity);
+            _unitOfWork.Commit();
         }
 
         public async Task UpdateAsync(T entity)
         {
-            repository.Update(entity);
-            await unitOfWork.CommitAsync();
+            _repository.Update(entity);
+            await _unitOfWork.CommitAsync();
         }
 
-        public IQueryable<T> Where(Expression<Func<T, bool>> predicate)
+        public IQueryable<T> WhereAsQueryable(Expression<Func<T, bool>> predicate)
         {
-            return repository.Where(predicate);
+            return _repository.WhereAsQueryable(predicate);
+        }
+
+        public async Task<IEnumerable<T>> Where(Expression<Func<T, bool>> predicate)
+        {
+            return await _repository.Where(predicate);
         }
     }
 }

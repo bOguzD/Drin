@@ -23,13 +23,15 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
-builder.Services.AddDbContext<DrinDbContext>(x =>
-{
-    x.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"), options =>
-    {
-        options.MigrationsAssembly(Assembly.GetAssembly(typeof(DrinDbContext)).GetName().Name);
-    });
-});
+//builder.Services.AddDbContext<DrinDbContext>(x =>
+//{
+//    x.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"), options =>
+//    {
+//        options.MigrationsAssembly(Assembly.GetAssembly(typeof(DrinDbContext)).GetName().Name);
+//    });
+//});
+
+builder.Services.AddDbContext<DrinDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
 var app = builder.Build();
 

@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drin.Data", "Drin.Data\Drin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drin.Business", "Drin.Business\Drin.Business.csproj", "{E7EECDA1-9925-4855-8CD8-3B7C4A7F9107}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drin.API", "Drin.API\Drin.API.csproj", "{F9317460-A98E-4B23-AEC6-2A586AA60618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drin.API", "Drin.API\Drin.API.csproj", "{F9317460-A98E-4B23-AEC6-2A586AA60618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drin.UI", "Drin.UI\Drin.UI.csproj", "{52FFEF36-D149-444E-9D38-061330CB27D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drin.UI", "Drin.UI\Drin.UI.csproj", "{52FFEF36-D149-444E-9D38-061330CB27D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drin.Caching", "Drin.Caching\Drin.Caching.csproj", "{944E31EF-2A12-4A81-94EE-5880FFCB0C8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drin.Caching", "Drin.Caching\Drin.Caching.csproj", "{944E31EF-2A12-4A81-94EE-5880FFCB0C8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drin.Test", "Drin.Test\Drin.Test.csproj", "{D129A96E-0C0D-4B66-A99F-3B90BFB37C9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{944E31EF-2A12-4A81-94EE-5880FFCB0C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{944E31EF-2A12-4A81-94EE-5880FFCB0C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{944E31EF-2A12-4A81-94EE-5880FFCB0C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D129A96E-0C0D-4B66-A99F-3B90BFB37C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D129A96E-0C0D-4B66-A99F-3B90BFB37C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D129A96E-0C0D-4B66-A99F-3B90BFB37C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D129A96E-0C0D-4B66-A99F-3B90BFB37C9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
