@@ -11,6 +11,7 @@ namespace Drin.Business.Mapping
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<ProductFeature, ProductFeatureDTO>().ReverseMap();
+            CreateMap<Product, ProductWithCategoryDTO>().ReverseMap();
         }
     }
 }

@@ -7,7 +7,8 @@ namespace Drin.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly DrinDbContext _context;
+        //Protected yaptık çünkü her repo oluştuğunda bir daha tanımlamamıza gerek kalmıyor
+        protected readonly DrinDbContext _context;
         private readonly DbSet<T> _dbSet;
 
         public Repository(DrinDbContext context)
