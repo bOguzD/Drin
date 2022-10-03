@@ -1,7 +1,9 @@
 using Drin.Business.Mapping;
 using Drin.Business.Services;
+using Drin.Business.Services.EntityServices;
 using Drin.Core.Repositories;
 using Drin.Core.Services;
+using Drin.Core.Services.EntityServices;
 using Drin.Core.UnitOfWorks;
 using Drin.Data;
 using Drin.Data.Repositories;
@@ -19,8 +21,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+
+
+builder.Services.AddTransient<IProductService, ProductService>();
+
+
+
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
 //builder.Services.AddDbContext<DrinDbContext>(x =>
@@ -31,7 +39,7 @@ builder.Services.AddAutoMapper(typeof(MapProfile));
 //    });
 //});
 
-builder.Services.AddDbContext<DrinDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
+builder.Services.AddDbContext<DrinDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

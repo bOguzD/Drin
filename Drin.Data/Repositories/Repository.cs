@@ -5,12 +5,12 @@ using System.Linq.Expressions;
 
 namespace Drin.Data.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DrinDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public GenericRepository(DrinDbContext context)
+        public Repository(DrinDbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

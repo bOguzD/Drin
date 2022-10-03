@@ -2,7 +2,7 @@
 using Drin.Core.DTOs;
 using Drin.Core.Entities;
 using Drin.Core.Responses;
-using Drin.Core.Services;
+using Drin.Core.Services.EntityServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Drin.API.Controllers
@@ -10,9 +10,9 @@ namespace Drin.API.Controllers
     public class ProductController : BaseController
     {
         private readonly IMapper mapper;
-        private readonly IService<Product> service;
+        private readonly IProductService service;
 
-        public ProductController(IMapper mapper, IService<Product> service)
+        public ProductController(IMapper mapper, IProductService service)
         {
             this.mapper = mapper;
             this.service = service;
