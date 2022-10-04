@@ -6,21 +6,27 @@
         public string? Message { get; set; }
         public int StatusCode { get; set; }
         public object? Data { get; set; }
+        public List<string>? Errors { get; set; }
 
 
         public static ServiceResponse Success(int statusCode, string? message)
         {
-            return CreateServiceResponse(true, message, statusCode, null);
+            return CreateServiceResponse(true, message, statusCode, null, null);
         }
         public static ServiceResponse Success(int statusCode, string? message, object data)
         {
-            return CreateServiceResponse(true, message, statusCode, data);
+            return CreateServiceResponse(true, message, statusCode, data, null);
         }
 
         public static ServiceResponse Failure(int statusCode, string? message)
         {
             message = CreateErrorMessage(message);
-            return CreateServiceResponse(false, message, statusCode, null);
+            return CreateServiceResponse(false, message, statusCode, null, null);
+        }
+
+        public static ServiceResponse Fails(int statusCode, List<string>? message)
+        {
+            return CreateServiceResponse(false, null, statusCode, null, message);
         }
 
         private static string CreateErrorMessage(string? message)
@@ -30,14 +36,15 @@
                 : message;
         }
 
-        private static ServiceResponse CreateServiceResponse(bool isSuccess, string? message, int statusCode, object? data)
+        private static ServiceResponse CreateServiceResponse(bool isSuccess, string? message, int statusCode, object? data, List<string>? errorMessages)
         {
             return new ServiceResponse
             {
                 IsSuccess = isSuccess,
                 StatusCode = statusCode,
                 Message = message,
-                Data = data
+                Data = data,
+                Errors = errorMessages
             };
         }
     }

@@ -1,4 +1,5 @@
-﻿using Drin.Core.Responses;
+﻿using Drin.API.Filters;
+using Drin.Core.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace Drin.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[ValidateFilterAttribute] Program.cs e ekledik
     public class BaseController : ControllerBase
     {
         [NonAction]//Swaggerda gözüküyor bunu yazmazsak. Kendi içimizde kullanıyoruz. bir endpoint değil
