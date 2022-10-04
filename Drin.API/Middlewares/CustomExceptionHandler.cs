@@ -21,6 +21,7 @@ namespace Drin.API.Middlewares
                     var statusCode = exceptionFeature.Error switch
                     {
                         ClientSideException => 400,
+                        NotFoundExceptionHandler => 404,
                         _ => 500
                     };
 

@@ -21,7 +21,9 @@
         public static ServiceResponse Failure(int statusCode, string? message)
         {
             message = CreateErrorMessage(message);
-            return CreateServiceResponse(false, message, statusCode, null, null);
+            List<string> error = new();
+            error.Add(message);
+            return CreateServiceResponse(false, message, statusCode, null, error);
         }
 
         public static ServiceResponse Fails(int statusCode, List<string>? message)

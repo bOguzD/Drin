@@ -1,4 +1,5 @@
-﻿using Drin.Core.Repositories;
+﻿using Drin.Business.Exceptions;
+using Drin.Core.Repositories;
 using Drin.Core.Services;
 using Drin.Core.UnitOfWorks;
 using System.Linq.Expressions;
@@ -58,7 +59,13 @@ namespace Drin.Business.Services
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            var entity = await _repository.GetByIdAsync(id);
+
+            if(entity == null)
+                throw new NotFoundExceptionHandler($"{typeof(T).Name} (Id: {id}) not found");
+            
+
+            return entity;
         }
 
         public void Update(T entity)
