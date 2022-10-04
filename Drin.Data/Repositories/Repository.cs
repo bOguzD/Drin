@@ -38,11 +38,11 @@ namespace Drin.Data.Repositories
             _dbSet.RemoveRange(entities);
         }
 
-        //public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate)
-        //{
-        //    //Çektiği datayı memory'ye almasın diye AsNoTracking dedik
-        //    return dbSet.AsNoTracking().AsQueryable();
-        //}
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate)
+        {
+            //Çektiği datayı memory'ye almasın diye AsNoTracking dedik
+            return _dbSet.AsNoTracking().AsQueryable();
+        }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
@@ -73,6 +73,11 @@ namespace Drin.Data.Repositories
         public async Task<bool> AnyAsync(Expression<Func<T,bool>> predicate)
         {
             return await _dbSet.AnyAsync(predicate);
+        }
+
+        public IQueryable<T> GetAll()
+        {
+            return _dbSet.AsQueryable();
         }
     }
 }

@@ -4,6 +4,8 @@ using Drin.API.Extensions;
 using Drin.API.Middlewares;
 using Drin.API.Modules;
 using Drin.Business.Mapping;
+using Drin.Caching;
+using Drin.Core.Services.EntityServices;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -14,11 +16,11 @@ services.AddDependencyResolvers(configuration);
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 services.AddAutoMapper(typeof(MapProfile));
+services.AddMemoryCache();
 
 //AutoFac'ten dolayý eklendi
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepositoryServiceModule()));
-
 
 var app = builder.Build();
 

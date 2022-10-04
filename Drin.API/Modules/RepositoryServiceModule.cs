@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Drin.Business.Mapping;
+using Drin.Caching;
+using Drin.Core.Services.EntityServices;
 using Drin.Data;
 using System.Reflection;
 using Module = Autofac.Module;
@@ -24,6 +26,9 @@ namespace Drin.API.Modules
             .Where(x => x.Name.EndsWith("Service"))
             .AsImplementedInterfaces()
             .InstancePerLifetimeScope();
+
+            //TODO: Cacheleme şimdilik ertelendi.
+            //builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
         }
     }
 }

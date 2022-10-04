@@ -6,7 +6,8 @@ namespace Drin.Core.Repositories
     {
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
-        //IQueryable<T> GetAll(Expression<Func<T,bool>> predicate);
+        IQueryable<T> GetAll(Expression<Func<T, bool>> predicate);
+        IQueryable<T> GetAll();
         IQueryable<T> WhereAsQueryable(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> Where(Expression<Func<T, bool>> predicate);
         Task AddAsync(T entity);

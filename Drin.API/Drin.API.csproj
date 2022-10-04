@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Drin.Business\Drin.Business.csproj" />
+    <ProjectReference Include="..\Drin.Caching\Drin.Caching.csproj" />
   </ItemGroup>
 
 </Project>

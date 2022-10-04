@@ -39,8 +39,6 @@ namespace Drin.API.Extensions
             {
                 opt.SuppressModelStateInvalidFilter = true;
             });
-
-            
         }
     }
 }
