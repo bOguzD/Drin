@@ -3,6 +3,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//builder.Services.AddControllers(options => options.Filters.Add(new ValidateFilterAttribute()))
+//    .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining(typeof(ProductDTOValidator)));
+
+
+
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
