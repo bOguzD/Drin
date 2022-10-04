@@ -16,5 +16,6 @@ namespace Drin.Core.Services
         void Update(T entity);
         void Delete(T entity);
         Task DeleteRangeAsync(IEnumerable<T> entities);
+        Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
     }
 }

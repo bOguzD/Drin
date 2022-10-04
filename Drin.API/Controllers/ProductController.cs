@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Drin.API.Filters;
 using Drin.Core.DTOs;
 using Drin.Core.Entities;
 using Drin.Core.Responses;
@@ -27,6 +28,7 @@ namespace Drin.API.Controllers
             return CreateActionResult(ServiceResponse.Success(200, "Ürünler başarı ile getirildi.", productDtos));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -56,6 +58,7 @@ namespace Drin.API.Controllers
             return CreateActionResult(ServiceResponse.Success(204, "Ürün başarı ile eklendi."));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

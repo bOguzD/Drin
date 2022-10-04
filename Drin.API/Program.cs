@@ -37,7 +37,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
 //TODO : ServiceResponse'a göre düzenlemeler yapýlacak
 //System.Text.Json.JsonException: A possible object cycle was detected.
