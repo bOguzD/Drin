@@ -1,5 +1,6 @@
 using Drin.API.Extensions;
 using Drin.API.Filters;
+using Drin.API.Middlewares;
 using Drin.Business.Mapping;
 using Drin.Business.Services;
 using Drin.Business.Services.EntityServices;
@@ -71,6 +72,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.CustomException();
 
 app.UseAuthorization();
 
