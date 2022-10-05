@@ -1,0 +1,26 @@
+﻿@using Drin.Core.Entities
+@model List<Product>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Stock</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
