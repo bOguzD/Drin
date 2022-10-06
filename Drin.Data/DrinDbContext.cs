@@ -16,6 +16,8 @@ namespace Drin.Data
         public DbSet<Category>  Category { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductFeature> ProductFeature { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<OperationClaim> OperationClaim { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
